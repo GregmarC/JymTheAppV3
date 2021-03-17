@@ -11,6 +11,7 @@ import type {Node} from 'react';
 import { SafeAreaView, StatusBar, useColorScheme } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import HomeScreen from './src/screens/Home';
+import JymBuddy from './src/components/JymBuddy';
 
 
 
@@ -51,7 +52,7 @@ const App: () => Node = () => {
     <>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <SafeAreaView>
-        <HomeScreen/>
+        <JymBuddy/>
       </SafeAreaView>
     </>
   );
