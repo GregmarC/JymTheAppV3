@@ -12,7 +12,7 @@ import { SafeAreaView, StatusBar, useColorScheme } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import HomeScreen from './src/screens/Home';
 import JymBuddy from './src/components/JymBuddy';
-
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 
 const Section = ({children, title}): Node => {
@@ -50,10 +50,12 @@ const App: () => Node = () => {
 
   return (
     <>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <SafeAreaView>
-        <JymBuddy/>
-      </SafeAreaView>
+      <SafeAreaProvider>
+        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+        <SafeAreaView>
+          <JymBuddy/>
+        </SafeAreaView>
+      </SafeAreaProvider>
     </>
   );
 };
