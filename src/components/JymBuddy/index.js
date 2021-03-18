@@ -15,9 +15,14 @@ const JymBuddy = (props) => {
                 >
                     <View style={styles.titleContainer}>
                         <Text style={styles.imageTitle}>Magi Buff Karp</Text>
-                        <View style={{flexDirection : 'row'}}>
-                            <Entype name={'location-pin'} size={18} style={{marginLeft: 10}} color='white'/>
-                            <Text style={styles.imageSubTitle}>New York, New York</Text>
+                        <View style={{flexDirection : 'row', alignItems: 'center', justifyContent: 'space-around', width: '100%'}}>
+                            <View style={{flexDirection: 'row'}}>
+                                <Entype name={'location-pin'} size={18} color='white'/>
+                                <Text style={styles.imageSubTitle}>New York, New York</Text>
+                            </View>
+                            <View>
+                                <Text style={styles.imageSubTitlePrice}>($20-50 per session)</Text>
+                            </View>
                         </View>
                     </View>
                 </ImageBackground>
@@ -90,19 +95,25 @@ const styles = StyleSheet.create({
     titleContainer : {
         position : 'absolute',
         bottom : 20,
-        left : 10
+        width : '100%'
     },
     imageTitle : {
         color: 'white',
         fontSize: 30,
         fontWeight: 'bold',
-        marginBottom : 5
+        marginBottom : 5,
+        marginLeft : 5
     },
     imageSubTitle : {
         color : 'white',
         fontSize : 15,
         fontWeight : 'bold',
         marginLeft : 5
+    },
+    imageSubTitlePrice : {
+        color : 'white',
+        fontSize : 12,
+        fontWeight : 'bold',
     },
     rowSection : {
         padding : 10
