@@ -27,7 +27,7 @@ const JymBuddy = (props) => {
                     </View>
                 </ImageBackground>
                 <View style={styles.ratingAndSocialContainer}>
-                    <View style={{width: 150, alignItems: 'center'}}>
+                    <View style={{position: 'relative', left : 8}}>
                         <Rating type='custom' tintColor='#fff' ratingColor='purple' ratingBackgroundColor='grey' imageSize={20} fractions={1} startingValue={3.5} />
                     </View>
                     <View style={{width: 110, flexDirection : 'row', justifyContent : 'space-around'}}>
