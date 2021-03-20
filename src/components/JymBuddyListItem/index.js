@@ -12,9 +12,7 @@ const JymBuddyListItem = (props) => {
 
     console.log(props.item)
 
-    const image = {
-        file : require('../../../assets/images/buffKarp.jpg')
-    }
+    const { image, name, location, rate } = props.item
 
     return (
         <View style={styles.jymBuddyContainer}>
@@ -22,18 +20,18 @@ const JymBuddyListItem = (props) => {
                 <ImageBackground 
                     style={styles.image}
                     imageStyle={{borderRadius : 15, resizeMode : 'contain'}}
-                    source={props.item.image}
+                    source={image}
                 >
                 </ImageBackground>
                 <View style={styles.titleContainer}>
-                    <Text style={styles.imageTitle}>Magi Buff Karp</Text>
+                    <Text style={styles.imageTitle}>{name}</Text>
                     <View style={{flexDirection : 'row', alignItems: 'center', justifyContent: 'space-around', width: '100%'}}>
                         <View style={{flexDirection: 'row'}}>
                             <Entype name={'location-pin'} size={18} color='white'/>
-                            <Text style={styles.imageSubTitle}>New York, New York</Text>
+                            <Text style={styles.imageSubTitle}>{location}</Text>
                         </View>
                         <View>
-                            <Text style={styles.imageSubTitlePrice}>($20-50 per session)</Text>
+                            <Text style={styles.imageSubTitlePrice}>{`(${rate} per session)`}</Text>
                         </View>
                     </View>
                 </View>
@@ -73,7 +71,9 @@ const styles = StyleSheet.create({
         height: 80,
         width : '100%',
         backgroundColor : 'rgba(0, 0, 0, 0.3)',
-        zIndex : 0
+        zIndex : 0,
+        borderBottomLeftRadius: 20,
+        borderBottomRightRadius: 20,
     },
     ratingAndSocialContainer : {
         width: '100%',

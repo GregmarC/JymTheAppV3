@@ -9,21 +9,36 @@ export default [
     {
         id : 0,
         image : buffKarp,
+        name : 'Magi Buff Karp',
+        location : 'New York, New York',
+        rate : '$20-50'
     },
     {
         id : 1,
-        image : logan
+        image : logan,
+        name : 'Logan and X-23',
+        location : 'Nutley, NJ',
+        rate : '$50-100'
     },
     {
         id : 2,
-        image : pepePose
+        image : pepePose,
+        name : 'Yoked, Sad Pepe',
+        location : 'Bloomfield, NJ',
+        rate : '$30-60'
     },
     {
         id : 3,
-        image : prometheus
+        image : prometheus,
+        name : 'Prometheus',
+        location : 'Montclair, NJ',
+        rate : '$20-60'
     },
     {
         id : 4,
-        image : titan
+        image : titan,
+        name : 'Eren Yeager',
+        location : 'Queens, NY',
+        rate : '$40-60'
     }
 ]
