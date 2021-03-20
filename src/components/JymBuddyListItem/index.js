@@ -4,15 +4,27 @@ import { TouchableOpacity } from 'react-native';
 import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native'
 import { Rating, AirbnbRating, Divider } from 'react-native-elements';
 import Entype from 'react-native-vector-icons/Entypo'
+import buffKarp from '../../../assets/images/buffKarp.jpg'
+import logan from '../../../assets/images/logan.jpeg'
+
 
 const JymBuddyListItem = (props) => {
+
+    console.log(props.item)
+
+    const image = {
+        file : require('../../../assets/images/buffKarp.jpg')
+    }
+
     return (
         <View style={styles.jymBuddyContainer}>
-            <ImageBackground 
-                style={styles.image}
-                imageStyle={{borderRadius : 15}}
-                source={require('../../../assets/images/buffKarp.jpg')}
-            >
+            <View style={styles.imageContainer}>
+                <ImageBackground 
+                    style={styles.image}
+                    imageStyle={{borderRadius : 15, resizeMode : 'contain'}}
+                    source={props.item.image}
+                >
+                </ImageBackground>
                 <View style={styles.titleContainer}>
                     <Text style={styles.imageTitle}>Magi Buff Karp</Text>
                     <View style={{flexDirection : 'row', alignItems: 'center', justifyContent: 'space-around', width: '100%'}}>
@@ -25,7 +37,8 @@ const JymBuddyListItem = (props) => {
                         </View>
                     </View>
                 </View>
-            </ImageBackground>
+                <View style={styles.transparentBlock}></View>
+            </View>
             <View style={styles.ratingAndSocialContainer}>
                 <View style={{position: 'relative', left : 8}}>
                     <Rating type='custom' tintColor='#fff' ratingColor='purple' ratingBackgroundColor='grey' imageSize={20} fractions={1} startingValue={3.5} />
@@ -49,6 +62,19 @@ const styles = StyleSheet.create({
         backgroundColor : 'white',
         padding: 20
     },
+    imageContainer : {
+        width: '100%',
+        backgroundColor: 'purple',
+        borderRadius : 20
+    },
+    transparentBlock : {
+        position : 'absolute',
+        bottom : 0,
+        height: 80,
+        width : '100%',
+        backgroundColor : 'rgba(0, 0, 0, 0.3)',
+        zIndex : 0
+    },
     ratingAndSocialContainer : {
         width: '100%',
         justifyContent : 'space-between',
@@ -59,19 +85,21 @@ const styles = StyleSheet.create({
         width: '100%',
         aspectRatio : 3 / 2,
         borderRadius : 20,
-        resizeMode : 'cover',
+        resizeMode : 'center',
     },
     titleContainer : {
         position : 'absolute',
         bottom : 20,
-        width : '100%'
+        width : '100%',
+        zIndex : 100
     },
     imageTitle : {
         color: 'white',
         fontSize: 30,
         fontWeight: 'bold',
         marginBottom : 5,
-        marginLeft : 5
+        marginLeft : 5,
+        zIndex: 1
     },
     imageSubTitle : {
         color : 'white',

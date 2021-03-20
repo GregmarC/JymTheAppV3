@@ -14,6 +14,7 @@ import HomeScreen from './src/screens/Home';
 import JymBuddy from './src/components/JymBuddy';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import JymBuddyListItem from './src/components/JymBuddyListItem';
+import SearchResultsScreen from './src/screens/SearchResultsScreen';
 
 
 const Section = ({children, title}): Node => {
@@ -54,7 +55,7 @@ const App: () => Node = () => {
       <SafeAreaProvider>
         <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
         <SafeAreaView>
-          <JymBuddyListItem/>
+          <SearchResultsScreen/>
         </SafeAreaView>
       </SafeAreaProvider>
     </>
