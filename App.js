@@ -16,6 +16,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import JymBuddyListItem from './src/components/JymBuddyListItem';
 import SearchResultsScreen from './src/screens/SearchResultsScreen';
 import WorkoutLocationSearch from './src/screens/WorkoutLocationSearch';
+import SearchParams from './src/screens/SearchParams';
 
 
 const Section = ({children, title}): Node => {
@@ -56,7 +57,7 @@ const App: () => Node = () => {
       <SafeAreaProvider>
         <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
         <SafeAreaView>
-          <WorkoutLocationSearch/>
+          <SearchParams/>
         </SafeAreaView>
       </SafeAreaProvider>
     </>
