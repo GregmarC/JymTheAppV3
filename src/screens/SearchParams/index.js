@@ -15,7 +15,7 @@ const SearchParams = (props) => {
                     </Text>
                 </View>
                 <View style={styles.milesCounterContainer}>
-                    <TouchableOpacity style={styles.button} onPress={() => setMiles(Math.max( 0, miles - 1 ))}>
+                    <TouchableOpacity style={styles.button} onPress={() => setMiles(Math.max( 1, miles - 1 ))}>
                         <Text style={{...styles.buttonText, paddingHorizontal: 22}}>-</Text>
                     </TouchableOpacity>
                         <Text style={styles.milesText}>{miles}</Text>
