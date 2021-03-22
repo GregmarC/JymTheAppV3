@@ -57,7 +57,7 @@ const App: () => Node = () => {
       <SafeAreaProvider>
         <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
         <SafeAreaView>
-          <SearchParams/>
+          <HomeScreen/>
         </SafeAreaView>
       </SafeAreaProvider>
     </>

@@ -27,14 +27,14 @@ const HomeScreen = (props) => {
 export default HomeScreen
 
 const styles = StyleSheet.create({
+    homeContainer : {
+        height: '100%',
+        backgroundColor: 'lightgrey'
+    },
     backgroundImage: {
         width: '100%',
         height: 300,
         resizeMode: 'cover',
-    },
-    homeContainer : {
-        height: '100%',
-        backgroundColor: 'lightgrey'
     },
     title : {
         fontSize: 40,
@@ -44,7 +44,10 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         position : 'relative',
         top : '10%',
-        right : '5%'
+        right : '5%',
+        backgroundColor : 'rgba(0, 0, 0, 0.3)',
+        borderRadius : 15,
+        overflow : 'hidden'
     },
     buttonContainer : {
         marginTop: 70,
