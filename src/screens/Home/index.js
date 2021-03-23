@@ -1,17 +1,22 @@
 import React from 'react'
+import { SafeAreaView } from 'react-native'
 import { StyleSheet, ImageBackground, Text, View, TouchableOpacity } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 
 
 const HomeScreen = (props) => {
+
+    const navigation = useNavigation();
+
     return (
-        <View style={styles.homeContainer}>
+        <SafeAreaView style={styles.homeContainer}>
             <ImageBackground 
                 source={require('../../../assets/images/jymWelcome.jpeg')} 
                 style={styles.backgroundImage}>
                     <Text style={styles.title}>Jym The App</Text>
             </ImageBackground>
             <View style={styles.buttonContainer} >
-                <TouchableOpacity style={styles.button} onPress={() => console.warn('Button was pressed')}>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Workout Location Search")}>
                     <Text style={styles.buttonText}>Find a Jym Buddy</Text>
                 </TouchableOpacity>
             </View>
@@ -20,7 +25,7 @@ const HomeScreen = (props) => {
                     <Text style={styles.buttonText}>Become a Jym Trainer</Text>
                 </TouchableOpacity>
             </View>
-        </View>
+        </SafeAreaView>
     )
 }
 
@@ -46,8 +51,8 @@ const styles = StyleSheet.create({
         top : '10%',
         right : '5%',
         backgroundColor : 'rgba(0, 0, 0, 0.3)',
-        borderRadius : 15,
-        overflow : 'hidden'
+        borderRadius : 20,
+        overflow : 'hidden',
     },
     buttonContainer : {
         marginTop: 70,

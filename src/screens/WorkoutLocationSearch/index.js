@@ -4,9 +4,13 @@ import { TextInput } from 'react-native'
 import { StyleSheet, Text, View } from 'react-native'
 import dummysearch from '../../../assets/data/dummysearch'
 import Entype from 'react-native-vector-icons/Entypo'
+import { useNavigation } from '@react-navigation/native'
+import { TouchableOpacity } from 'react-native'
 
 
 const WorkoutLocationSearch = (props) => {
+
+    const navigation = useNavigation()
 
     const [inputText, setinputText] = useState('')
 
@@ -23,12 +27,12 @@ const WorkoutLocationSearch = (props) => {
                 <FlatList 
                     data={dummysearch}
                     renderItem={ ({item}) => (
-                        <View style={styles.searchRow}>
+                        <TouchableOpacity style={styles.searchRow} onPress={() => navigation.navigate('Jym Distance')}>
                             <View style={styles.iconContainer}>
                                 <Entype name={'location-pin'} size={30} />
                             </View>
                             <Text style={styles.locationText}>{item.description}</Text>
-                        </View>
+                        </TouchableOpacity>
                     )}
                 />
         </View>

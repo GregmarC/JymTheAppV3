@@ -8,6 +8,7 @@
 
 import React from 'react';
 import type {Node} from 'react';
+import 'react-native-gesture-handler';
 import { SafeAreaView, StatusBar, useColorScheme } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import HomeScreen from './src/screens/Home';
@@ -17,6 +18,7 @@ import JymBuddyListItem from './src/components/JymBuddyListItem';
 import SearchResultsScreen from './src/screens/SearchResultsScreen';
 import WorkoutLocationSearch from './src/screens/WorkoutLocationSearch';
 import SearchParams from './src/screens/SearchParams';
+import Router from './src/navigation/Routers';
 
 
 const Section = ({children, title}): Node => {
@@ -56,9 +58,7 @@ const App: () => Node = () => {
     <>
       <SafeAreaProvider>
         <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-        <SafeAreaView>
-          <HomeScreen/>
-        </SafeAreaView>
+        <Router />
       </SafeAreaProvider>
     </>
   );

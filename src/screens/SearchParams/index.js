@@ -1,9 +1,11 @@
+import { useNavigation } from '@react-navigation/native'
 import React, { useState } from 'react'
 import { TouchableOpacity } from 'react-native'
 import { StyleSheet, Text, View } from 'react-native'
 
 const SearchParams = (props) => {
 
+    const navigation = useNavigation()
     const [miles, setMiles] = useState(10)
 
     return (
@@ -11,7 +13,7 @@ const SearchParams = (props) => {
             <View style={styles.paramRow}>
                 <View style={styles.trainerText}>
                     <Text>
-                        How many miles from your target workout location would you like to display Jym Trainers?
+                        How many miles from your target workout location would you like to display Jym Buddies?
                     </Text>
                 </View>
                 <View style={styles.milesCounterContainer}>
@@ -24,6 +26,11 @@ const SearchParams = (props) => {
                     </TouchableOpacity> 
                 </View>
             </View>
+            <View style={styles.searchBtnContainer}>
+                <TouchableOpacity style={styles.searchBtn} >
+                    <Text style={styles.searchBtnText}>Search</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     )
 }
@@ -34,7 +41,7 @@ const styles = StyleSheet.create({
     container : {
         padding : 20,
         height: '100%',
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
     paramRow : {
         flexDirection: 'row',
@@ -42,7 +49,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         position: 'relative',
-        bottom: 100
+        marginBottom: 200
     },
     trainerText : {
         width: 150,
@@ -66,6 +73,25 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         width: 150,
         justifyContent: 'space-around',
+        alignItems: 'center',
+    },
+    searchBtnContainer : {
+        width : '100%',
         alignItems: 'center'
+    },
+    searchBtn : {
+        backgroundColor : 'purple',
+        padding : 10,
+        position: 'relative',
+        bottom : 0,
+        justifyContent: 'center',
+        flexDirection : 'row',
+        width: '30%',
+        borderRadius : 15,
+    },
+    searchBtnText : {
+        color : 'white',
+        fontWeight : 'bold',
+        fontSize : 18
     }
 })
