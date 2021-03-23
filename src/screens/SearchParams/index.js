@@ -27,7 +27,12 @@ const SearchParams = (props) => {
                 </View>
             </View>
             <View style={styles.searchBtnContainer}>
-                <TouchableOpacity style={styles.searchBtn} >
+                <TouchableOpacity style={styles.searchBtn} onPress={() => navigation.navigate('Home', {
+                    screen: 'Explore',
+                    params: {
+                        screen: 'Search Results',
+                    },
+                })}>
                     <Text style={styles.searchBtnText}>Search</Text>
                 </TouchableOpacity>
             </View>
