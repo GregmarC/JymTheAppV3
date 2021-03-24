@@ -15,7 +15,7 @@ const Tab = createBottomTabNavigator();
 const HomeTabNavigator = (props) => {
     return (
         <Tab.Navigator tabBarOptions={{
-            activeTintColor: '#f15454'
+            activeTintColor: 'purple'
         }}>
             <Tab.Screen 
                 name={"Explore"}
