@@ -62,8 +62,17 @@ const styles = StyleSheet.create({
     button : {
         paddingVertical: 15,
         borderRadius: 70,
-        borderWidth: 1,
-        borderColor: 'lightgrey'
+        borderWidth: 2,
+        borderColor: 'lightgrey',
+        backgroundColor: 'white',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 0,
+        },
+        shadowOpacity: 0.32,
+        shadowRadius: 1.46,
+        elevation: 0,
     },
     buttonText : {
         fontSize: 20,
@@ -93,6 +102,14 @@ const styles = StyleSheet.create({
         flexDirection : 'row',
         width: '30%',
         borderRadius : 15,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
+        shadowOpacity: 0.32,
+        shadowRadius: 5.46,
+        elevation: 9,
     },
     searchBtnText : {
         color : 'white',

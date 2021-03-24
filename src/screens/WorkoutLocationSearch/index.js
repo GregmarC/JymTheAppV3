@@ -22,7 +22,6 @@ const WorkoutLocationSearch = (props) => {
         <View style={styles.container}>
             <GooglePlacesAutocomplete
                 placeholder='Where would you like to workout?'
-                numberOfLines={3}
                 onPress={(data, details = null) => {
                     // 'details' is provided when fetchDetails = true
                     console.log(data, details);
