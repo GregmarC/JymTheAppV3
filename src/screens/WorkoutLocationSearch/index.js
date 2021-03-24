@@ -6,6 +6,10 @@ import dummysearch from '../../../assets/data/dummysearch'
 import Entype from 'react-native-vector-icons/Entypo'
 import { useNavigation } from '@react-navigation/native'
 import { TouchableOpacity } from 'react-native'
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
+import constant from '../../constants'
+import SuggestionRow from './SuggestionRow'
+
 
 
 const WorkoutLocationSearch = (props) => {
@@ -16,25 +20,24 @@ const WorkoutLocationSearch = (props) => {
 
     return (
         <View style={styles.container}>
-                <TextInput 
-                    style={styles.textInput}
-                    placeholder="Where would you like to workout? I.e. home, nearby park, gym, etc."
-                    value={inputText}
-                    onChangeText={setinputText}
-                    multiline={true}
-                />
-
-                <FlatList 
-                    data={dummysearch}
-                    renderItem={ ({item}) => (
-                        <TouchableOpacity style={styles.searchRow} onPress={() => navigation.navigate('Jym Distance')}>
-                            <View style={styles.iconContainer}>
-                                <Entype name={'location-pin'} size={30} />
-                            </View>
-                            <Text style={styles.locationText}>{item.description}</Text>
-                        </TouchableOpacity>
-                    )}
-                />
+            <GooglePlacesAutocomplete
+                placeholder='Where would you like to workout?'
+                onPress={(data, details = null) => {
+                    // 'details' is provided when fetchDetails = true
+                    console.log(data, details);
+                    navigation.navigate('Jym Distance')
+                }}
+                fetchDetails
+                styles={{
+                    textInput: styles.textInput
+                }}
+                query={{
+                    key: constant.placesKey,
+                    language: 'en',
+                }}
+                suppressDefaultStyles
+                renderRow={ (item) => <SuggestionRow item={item} /> }
+            />
         </View>
     )
 }
@@ -42,27 +45,29 @@ const WorkoutLocationSearch = (props) => {
 export default WorkoutLocationSearch
 
 const styles = StyleSheet.create({
-    container : {
-        margin: 20,
+    container: {
+        padding: 20,
+        height: '100%',
+        backgroundColor: 'white'
     },
-    textInput : {
+    textInput: {
         fontSize: 20,
         marginBottom: 20,
+        color: 'black',
     },
-    searchRow : {
+    searchRow: {
         flexDirection: 'row',
         alignItems: 'center',
         paddingVertical: 15,
         borderBottomWidth: 1,
         borderColor: 'lightgrey'
     },
-    iconContainer : {
+    iconContainer: {
         backgroundColor: '#d4d4d4',
         padding: 7,
         borderRadius: 10,
         marginRight: 15,
     },
-    locationText : {
-
+    locationText: {
     }
 })
