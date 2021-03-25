@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView } from 'react-native';
+import { ScrollView, useWindowDimensions } from 'react-native';
 import { TouchableOpacity } from 'react-native';
 import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native'
 import { Rating, AirbnbRating, Divider } from 'react-native-elements';
@@ -14,8 +14,10 @@ const JymBuddyCarouselItem = (props) => {
 
     const { image, name, location, rate } = props.item
 
+    const width = useWindowDimensions().width;
+
     return (
-        <View style={styles.jymBuddyContainer}>
+        <View style={{...styles.jymBuddyContainer, width: width - 60 }}>
             <View style={styles.imageContainer}>
                 <Image 
                     style={styles.image}
@@ -26,13 +28,13 @@ const JymBuddyCarouselItem = (props) => {
             <View style={styles.ratingAndSocialContainer}>
                 <View style={styles.titleContainer}>
                     <Text style={styles.imageTitle}>{name}</Text>
-                    <View style={{flexDirection : 'row', alignItems: 'center', justifyContent: 'space-between', width: '100%', marginTop: 5}}>
+                    <View style={{flexDirection : 'row', alignItems: 'center', justifyContent: 'space-around', width: '100%', marginTop: 5}}>
                         <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
                             <Entype name={'location-pin'} size={18} color='black'/>
                             <Text style={styles.imageSubTitle}>{location}</Text>
                         </View>
                         <View style={{marginLeft: 10}}>
-                            <Text style={styles.imageSubTitlePrice}>{`(${rate} per session)`}</Text>
+                            <Text style={styles.imageSubTitlePrice}>{`(${rate})`}</Text>
                         </View>
                     </View>
                 </View>
@@ -57,13 +59,14 @@ const styles = StyleSheet.create({
         backgroundColor : 'white',
         padding: 20,
         flexDirection: 'row',
-        width: '100%',
-        opacity: .85
+        opacity: .85,
+        borderRadius: 15
     },
     imageContainer : {
         width: '50%',
         backgroundColor: 'purple',
-        borderRadius : 20
+        borderRadius : 20,
+        overflow: 'hidden'
     },
     transparentBlock : {
         position : 'absolute',
