@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'
 import dummyfeed from '../../../assets/data/dummyfeed'
 import CustomMarker from '../../components/CustomMarker'
+import JymBuddyCarouselItem from '../../components/JymBuddyCarouselItem'
 
 const SearchResultsMap = (props) => {
 
@@ -29,6 +30,10 @@ const SearchResultsMap = (props) => {
                     /> 
                 )}
             </MapView>
+
+            <View style={{position: 'absolute', bottom: 10, width: '100%'}}>
+                <JymBuddyCarouselItem item={dummyfeed[3]} />
+            </View>
         </View>
     )
 }
