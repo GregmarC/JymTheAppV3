@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { FlatList, useWindowDimensions } from 'react-native'
 import { StyleSheet, Text, View } from 'react-native'
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'
 import dummyfeed from '../../../assets/data/dummyfeed'
@@ -8,6 +9,8 @@ import JymBuddyCarouselItem from '../../components/JymBuddyCarouselItem'
 const SearchResultsMap = (props) => {
 
     const [selectedPlaceId, setSelectedPlaceId] = useState(null)
+
+    const width = useWindowDimensions().width;
 
     return (
         <View style={styles.container}>
@@ -32,7 +35,15 @@ const SearchResultsMap = (props) => {
             </MapView>
 
             <View style={{position: 'absolute', bottom: 10, width: '100%'}}>
-                <JymBuddyCarouselItem item={dummyfeed[3]} />
+                <FlatList 
+                    data={dummyfeed}
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                    renderItem={({item}) => <JymBuddyCarouselItem item={item} />}
+                    snapToInterval={ width - 60 }
+                    snapToAlignment={'center'}
+                    decelerationRate={'fast'}
+                />
             </View>
         </View>
     )

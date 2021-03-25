@@ -14,8 +14,8 @@ const SearchResultsTabNavigator = (props) => {
                 backgroundColor: 'purple'
             }
         }}>
-            <Tab.Screen name={'list'} component={SearchResultsScreen} />
             <Tab.Screen name={'map'} component={SearchResultsMap} />
+            <Tab.Screen name={'list'} component={SearchResultsScreen} />
         </Tab.Navigator>
     )
 }

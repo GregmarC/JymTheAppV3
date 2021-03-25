@@ -17,9 +17,9 @@ const JymBuddyCarouselItem = (props) => {
     const width = useWindowDimensions().width;
 
     return (
-        <View style={{...styles.jymBuddyContainer, width: width - 60 }}>
+        <View style={{ ...styles.jymBuddyContainer, width: width - 60 }}>
             <View style={styles.imageContainer}>
-                <Image 
+                <Image
                     style={styles.image}
                     source={image}
                 >
@@ -28,26 +28,26 @@ const JymBuddyCarouselItem = (props) => {
             <View style={styles.ratingAndSocialContainer}>
                 <View style={styles.titleContainer}>
                     <Text style={styles.imageTitle}>{name}</Text>
-                    <View style={{flexDirection : 'row', alignItems: 'center', justifyContent: 'space-around', width: '100%', marginTop: 5}}>
-                        <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
-                            <Entype name={'location-pin'} size={18} color='black'/>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', width: '100%', marginTop: 5 }}>
+                        <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                            <Entype name={'location-pin'} size={18} color='black' />
                             <Text style={styles.imageSubTitle}>{location}</Text>
                         </View>
-                        <View style={{marginLeft: 10}}>
+                        <View style={{ marginLeft: 10 }}>
                             <Text style={styles.imageSubTitlePrice}>{`(${rate})`}</Text>
                         </View>
                     </View>
                 </View>
-                <View style={{backgroundColor: 'yellow', flexDirection: 'row', justifyContent: 'flex-start'}}>
-                    <Rating type='custom' tintColor='#fff' ratingColor='purple' ratingBackgroundColor='grey' imageSize={20} fractions={1} startingValue={3.5} />
+                <View style={{ flexDirection: 'row'}}>
+                    <Rating readonly type='custom' tintColor='purple' ratingColor='white' ratingBackgroundColor='grey' imageSize={20} fractions={1} startingValue={3.5} />
                 </View>
-                <View style={{width: 110, flexDirection : 'row', justifyContent : 'space-around'}}>
+                <View style={{ width: 110, flexDirection: 'row', justifyContent: 'space-around' }}>
                     <Entype name={'instagram'} size={18} />
                     <Entype name={'linkedin'} size={18} />
                     <Entype name={'facebook'} size={18} />
                 </View>
             </View>
-            <Divider style={{marginTop : 10, marginHorizontal : 20}}/>
+            <Divider style={{ marginTop: 10, marginHorizontal: 20 }} />
         </View>
     )
 }
@@ -55,114 +55,123 @@ const JymBuddyCarouselItem = (props) => {
 export default JymBuddyCarouselItem
 
 const styles = StyleSheet.create({
-    jymBuddyContainer : {
-        backgroundColor : 'white',
+    jymBuddyContainer: {
+        backgroundColor: 'rgba(255, 255, 255, 0.5)',
         padding: 20,
         flexDirection: 'row',
-        opacity: .85,
-        borderRadius: 15
+        borderRadius: 15,
+        marginRight: 5,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 5,
+        },
+        shadowOpacity: 0.34,
+        shadowRadius: 6.27,
+
+        elevation: 10,
     },
-    imageContainer : {
+    imageContainer: {
         width: '50%',
         backgroundColor: 'purple',
-        borderRadius : 20,
+        borderRadius: 20,
         overflow: 'hidden'
     },
-    transparentBlock : {
-        position : 'absolute',
-        bottom : 0,
+    transparentBlock: {
+        position: 'absolute',
+        bottom: 0,
         height: 80,
-        width : '100%',
-        backgroundColor : 'rgba(0, 0, 0, 0.3)',
-        zIndex : 0,
+        width: '100%',
+        backgroundColor: 'rgba(0, 0, 0, 0.3)',
+        zIndex: 0,
         borderBottomLeftRadius: 20,
         borderBottomRightRadius: 20,
     },
-    ratingAndSocialContainer : {
+    ratingAndSocialContainer: {
         width: '50%',
-        flexDirection : 'column',
+        flexDirection: 'column',
         marginRight: 20,
         justifyContent: 'space-between',
         alignItems: 'center'
     },
-    image : {
+    image: {
         width: '100%',
         height: 110,
-        borderRadius : 20,
-        resizeMode : 'center',
+        borderRadius: 20,
+        resizeMode: 'contain',
         borderRadius: 15,
     },
-    titleContainer : {
-        width : '100%',
+    titleContainer: {
+        width: '100%',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'space-between'
     },
-    imageTitle : {
+    imageTitle: {
         color: 'black',
         fontSize: 18,
         fontWeight: 'bold',
     },
-    imageSubTitle : {
-        color : 'black',
-        fontSize : 10,
-        fontWeight : 'bold',
+    imageSubTitle: {
+        color: 'black',
+        fontSize: 10,
+        fontWeight: 'bold',
     },
-    imageSubTitlePrice : {
-        color : 'black',
-        fontSize : 10,
-        fontWeight : 'bold',
+    imageSubTitlePrice: {
+        color: 'black',
+        fontSize: 10,
+        fontWeight: 'bold',
     },
-    rowSection : {
-        padding : 10
+    rowSection: {
+        padding: 10
     },
-    rowText : {
-        color : 'grey',
-        fontSize : 10.8,
-        marginTop : 5,
-        marginLeft : 10
+    rowText: {
+        color: 'grey',
+        fontSize: 10.8,
+        marginTop: 5,
+        marginLeft: 10
     },
-    rowTextAbout : {
-        color : 'grey',
-        fontSize : 13,
-        marginTop : 5,
-        marginLeft : 10,
-        lineHeight : 25
+    rowTextAbout: {
+        color: 'grey',
+        fontSize: 13,
+        marginTop: 5,
+        marginLeft: 10,
+        lineHeight: 25
     },
-    rowBtns : {
-        flexDirection : 'row', 
-        justifyContent : 'space-around', 
+    rowBtns: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
         marginTop: 5
     },
-    subTitleText : {
-        fontSize : 12,
-        color : 'purple',
-        fontWeight : '500'
+    subTitleText: {
+        fontSize: 12,
+        color: 'purple',
+        fontWeight: '500'
     },
-    btnContainer : {
-        backgroundColor : 'purple',
-        padding : 5,
-        borderRadius : 15
+    btnContainer: {
+        backgroundColor: 'purple',
+        padding: 5,
+        borderRadius: 15
     },
-    textBtn : {
-        color : 'white',
+    textBtn: {
+        color: 'white',
     },
-    bookSeshBtnContainer : {
-        position : 'absolute',
-        bottom : 0,
-        width : '100%',
-        flexDirection : 'row',
-        justifyContent : 'center'
+    bookSeshBtnContainer: {
+        position: 'absolute',
+        bottom: 0,
+        width: '100%',
+        flexDirection: 'row',
+        justifyContent: 'center'
     },
-    bookSeshBtn : {
-        backgroundColor : 'purple',
-        padding : 20,
-        borderRadius : 20
+    bookSeshBtn: {
+        backgroundColor: 'purple',
+        padding: 20,
+        borderRadius: 20
     },
-    bookSeshBtnText : {
-        color : 'white',
-        fontSize : 15,
-        fontWeight : 'bold'
+    bookSeshBtnText: {
+        color: 'white',
+        fontSize: 15,
+        fontWeight: 'bold'
     }
 })
 
