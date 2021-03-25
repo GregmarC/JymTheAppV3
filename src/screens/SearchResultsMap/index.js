@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { FlatList, useWindowDimensions } from 'react-native'
 import { StyleSheet, Text, View } from 'react-native'
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'
@@ -11,6 +11,20 @@ const SearchResultsMap = (props) => {
     const [selectedPlaceId, setSelectedPlaceId] = useState(null)
 
     const width = useWindowDimensions().width;
+    
+    const flatList = useRef()
+
+    useEffect(() => {
+
+        if( !selectedPlaceId || !flatList ){
+            return
+        }
+
+        const index = dummyfeed.findIndex(jymBuddy => jymBuddy.id === selectedPlaceId)
+
+        flatList.current.scrollToIndex({ index: index })
+
+    }, [selectedPlaceId])
 
     return (
         <View style={styles.container}>
@@ -35,7 +49,8 @@ const SearchResultsMap = (props) => {
             </MapView>
 
             <View style={{position: 'absolute', bottom: 10, width: '100%'}}>
-                <FlatList 
+                <FlatList
+                    ref={flatList} 
                     data={dummyfeed}
                     horizontal
                     showsHorizontalScrollIndicator={false}

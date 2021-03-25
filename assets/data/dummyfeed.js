@@ -7,18 +7,18 @@ import titan from '../images/titan.jpeg'
 
 export default [
     {
-        id : 0,
+        id : 1,
         image : buffKarp,
         name : 'Magi Buff Karp',
         location : 'New York, New York',
-        rate : '$20',
+        rate : '$35',
         coordinate: {
             latitude: 28.3915,
             longitude: -16.6291
         }
     },
     {
-        id : 1,
+        id : 2,
         image : logan,
         name : 'Logan and X-23',
         location : 'Nutley, NJ',
@@ -29,7 +29,7 @@ export default [
         }
     },
     {
-        id : 2,
+        id : 3,
         image : pepePose,
         name : 'Yoked, Sad Pepe',
         location : 'Bloomfield, NJ',
@@ -40,7 +40,7 @@ export default [
         }
     },
     {
-        id : 3,
+        id : 4,
         image : prometheus,
         name : 'Prometheus',
         location : 'Montclair, NJ',
@@ -51,7 +51,7 @@ export default [
         }
     },
     {
-        id : 4,
+        id : 5,
         image : titan,
         name : 'Eren Yeager',
         location : 'Queens, NY',
