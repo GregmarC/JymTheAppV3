@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import WorkoutLocationSearch from '../screens/WorkoutLocationSearch';
 import SearchParams from '../screens/SearchParams';
 import HomeTabNavigator from './HomeTabNavigator';
+import JymBuddy from '../components/JymBuddy';
 
 const Stack = createStackNavigator();
 
@@ -34,6 +35,15 @@ const Router = (props) => {
                     component={SearchParams}
                     options={{
                         title: "Jym Buddy Distance"
+                    }}
+                />
+
+                <Stack.Screen
+                    name={"Jym Buddy Details"}
+                    component={JymBuddy}
+                    options={{
+                        title: "Jym Buddy Details",
+                        headerBackTitle: "Back"
                     }}
                 />
             </Stack.Navigator>

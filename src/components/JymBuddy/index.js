@@ -1,31 +1,44 @@
+import { useRoute } from '@react-navigation/native';
 import React from 'react'
 import { ScrollView } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import { TouchableOpacity } from 'react-native';
 import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native'
 import { Rating, AirbnbRating, Divider } from 'react-native-elements';
 import Entype from 'react-native-vector-icons/Entypo'
+import dummyfeed from '../../../assets/data/dummyfeed';
 
 const JymBuddy = (props) => {
+
+    const route = useRoute()
+
+    const jymBuddy = dummyfeed.find(buddy => buddy.id === route.params.id)
+
+    const { image, name, location, rate } = jymBuddy
+
     return (
-        <View>
+        <SafeAreaView>
             <ScrollView style={styles.jymBuddyContainer}>
-                <ImageBackground 
-                    style={styles.image}
-                    source={require('../../../assets/images/buffKarp.jpg')}
-                >
+                <View style={styles.imageContainer}>
+                    <ImageBackground 
+                        style={styles.image}
+                        source={image}
+                    >
+                    </ImageBackground>
                     <View style={styles.titleContainer}>
-                        <Text style={styles.imageTitle}>Magi Buff Karp</Text>
+                        <Text style={styles.imageTitle}>{name}</Text>
                         <View style={{flexDirection : 'row', alignItems: 'center', justifyContent: 'space-around', width: '100%'}}>
                             <View style={{flexDirection: 'row'}}>
                                 <Entype name={'location-pin'} size={18} color='white'/>
-                                <Text style={styles.imageSubTitle}>New York, New York</Text>
+                                <Text style={styles.imageSubTitle}>{location}</Text>
                             </View>
                             <View>
-                                <Text style={styles.imageSubTitlePrice}>($20-50 per session)</Text>
+                                <Text style={styles.imageSubTitlePrice}>{`(${rate} per session)`}</Text>
                             </View>
                         </View>
                     </View>
-                </ImageBackground>
+                    <View style={styles.transparentBlock}></View>
+                </View>
                 <View style={styles.ratingAndSocialContainer}>
                     <View style={{position: 'relative', left : 8}}>
                         <Rating type='custom' tintColor='#fff' ratingColor='purple' ratingBackgroundColor='grey' imageSize={20} fractions={1} startingValue={3.5} />
@@ -70,7 +83,7 @@ const JymBuddy = (props) => {
                     <Text style={styles.bookSeshBtnText}>Book a Session</Text>
                 </TouchableOpacity>
             </View>
-        </View>
+        </SafeAreaView>
     )
 }
 
@@ -95,7 +108,18 @@ const styles = StyleSheet.create({
     titleContainer : {
         position : 'absolute',
         bottom : 20,
-        width : '100%'
+        width : '100%',
+        zIndex: 2
+    },
+    transparentBlock: {
+        position: 'absolute',
+        bottom: 0,
+        height: 80,
+        width: '100%',
+        backgroundColor: 'rgba(0, 0, 0, 0.3)',
+        zIndex: 0,
+        borderBottomLeftRadius: 20,
+        borderBottomRightRadius: 20,
     },
     imageTitle : {
         color: 'white',
@@ -151,7 +175,7 @@ const styles = StyleSheet.create({
     },
     bookSeshBtnContainer : {
         position : 'absolute',
-        bottom : 0,
+        bottom : 50,
         width : '100%',
         flexDirection : 'row',
         justifyContent : 'center'

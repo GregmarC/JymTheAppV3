@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/core';
 import React from 'react'
 import { ScrollView, useWindowDimensions } from 'react-native';
 import { TouchableOpacity } from 'react-native';
@@ -12,12 +13,18 @@ const JymBuddyCarouselItem = (props) => {
 
     console.log(props.item)
 
-    const { image, name, location, rate } = props.item
+    const { image, name, location, rate, id } = props.item
 
     const width = useWindowDimensions().width;
 
+    const navigation = useNavigation()
+
+    const goToJymBuddyPage = () => {
+        navigation.navigate('Jym Buddy Details', {id: id})
+    }
+
     return (
-        <View style={{ ...styles.jymBuddyContainer, width: width - 60 }}>
+        <TouchableOpacity onPress={() => goToJymBuddyPage()} style={{ ...styles.jymBuddyContainer, width: width - 60 }}>
             <View style={styles.imageContainer}>
                 <Image
                     style={styles.image}
@@ -48,7 +55,7 @@ const JymBuddyCarouselItem = (props) => {
                 </View>
             </View>
             <Divider style={{ marginTop: 10, marginHorizontal: 20 }} />
-        </View>
+        </TouchableOpacity>
     )
 }
 

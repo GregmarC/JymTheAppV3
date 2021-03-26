@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react'
 import { ScrollView } from 'react-native';
 import { TouchableOpacity } from 'react-native';
@@ -12,10 +13,16 @@ const JymBuddyListItem = (props) => {
 
     console.log(props.item)
 
-    const { image, name, location, rate } = props.item
+    const { image, name, location, rate, id } = props.item
+
+    const navigation = useNavigation()
+
+    const goToJymBuddyPage = () => {
+        navigation.navigate('Jym Buddy Details', {id: id})
+    }
 
     return (
-        <View style={styles.jymBuddyContainer}>
+        <TouchableOpacity style={styles.jymBuddyContainer} onPress={() => goToJymBuddyPage()}>
             <View style={styles.imageContainer}>
                 <ImageBackground 
                     style={styles.image}
@@ -49,7 +56,7 @@ const JymBuddyListItem = (props) => {
             </View>
 
             <Divider style={{marginTop : 10, marginHorizontal : 20}}/>
-        </View>
+        </TouchableOpacity>
     )
 }
 
