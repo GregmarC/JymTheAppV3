@@ -9,10 +9,17 @@ import JymBuddyCarouselItem from '../../components/JymBuddyCarouselItem'
 const SearchResultsMap = (props) => {
 
     const [selectedPlaceId, setSelectedPlaceId] = useState(null)
-
-    const width = useWindowDimensions().width;
-    
     const flatList = useRef()
+    const map = useRef()
+    const viewConfig = useRef({itemVisiblePercentThreshold: 70})
+    const onViewChanged = useRef( ({ viewableItems }) => {
+        if( viewableItems.length > 0){
+            const selectedPlace = viewableItems[0].item
+            setSelectedPlaceId(selectedPlace.id)
+        }
+    })
+    
+    const width = useWindowDimensions().width;
 
     useEffect(() => {
 
@@ -21,14 +28,22 @@ const SearchResultsMap = (props) => {
         }
 
         const index = dummyfeed.findIndex(jymBuddy => jymBuddy.id === selectedPlaceId)
-
-        flatList.current.scrollToIndex({ index: index })
+        flatList.current.scrollToIndex({ index: index, animated: false })
+        const selectedJymBuddy = dummyfeed[index]
+        const selectedJymBuddyLocation = {
+            latitude: selectedJymBuddy.coordinate.latitude,
+            longitude: selectedJymBuddy.coordinate.longitude,
+            latitudeDelta: 0.8,
+            longitudeDelta: 0.8,
+        }
+        map.current.animateToRegion(selectedJymBuddyLocation)
 
     }, [selectedPlaceId])
 
     return (
         <View style={styles.container}>
             <MapView
+                ref={map}
                 provider={PROVIDER_GOOGLE}
                 style={styles.map}
                 initialRegion={{
@@ -58,6 +73,8 @@ const SearchResultsMap = (props) => {
                     snapToInterval={ width - 60 }
                     snapToAlignment={'center'}
                     decelerationRate={'fast'}
+                    viewabilityConfig={viewConfig.current}
+                    onViewableItemsChanged={onViewChanged.current}
                 />
             </View>
         </View>
