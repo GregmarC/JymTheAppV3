@@ -1,1 +1,10 @@
-{}
+{
+  "auth": {
+    "jymtheappv32f9b984a": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}
