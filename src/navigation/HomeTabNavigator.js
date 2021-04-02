@@ -9,7 +9,7 @@ import Feather from 'react-native-vector-icons/Feather'
 import EvilIcons from 'react-native-vector-icons/EvilIcons'
 import ExploreNavigator from './ExploreNavigator';
 import ProfileScreen from '../screens/Profile';
-import AppointmentNavigator from './AppointNavigator';
+import AppointmentNavigator from './AppointmentNavigator';
 
 
 const Tab = createBottomTabNavigator();
