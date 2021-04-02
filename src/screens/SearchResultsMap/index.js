@@ -33,8 +33,8 @@ const SearchResultsMap = (props) => {
         const selectedJymBuddyLocation = {
             latitude: selectedJymBuddy.coordinate.latitude,
             longitude: selectedJymBuddy.coordinate.longitude,
-            latitudeDelta: 0.8,
-            longitudeDelta: 0.8,
+            latitudeDelta: .5,
+            longitudeDelta: .5,
         }
         map.current.animateToRegion(selectedJymBuddyLocation)
 

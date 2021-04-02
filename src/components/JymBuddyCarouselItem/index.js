@@ -63,7 +63,7 @@ export default JymBuddyCarouselItem
 
 const styles = StyleSheet.create({
     jymBuddyContainer: {
-        backgroundColor: 'rgba(255, 255, 255, 0.5)',
+        backgroundColor: 'white',
         padding: 20,
         flexDirection: 'row',
         borderRadius: 15,

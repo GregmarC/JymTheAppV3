@@ -13,8 +13,8 @@ export default [
         location : 'New York, New York',
         rate : '$35',
         coordinate: {
-            latitude: 28.3915,
-            longitude: -16.6291
+            latitude: 40.8223,
+            longitude: -74.1599
         }
     },
     {
@@ -24,8 +24,8 @@ export default [
         location : 'Nutley, NJ',
         rate : '$50',
         coordinate: {
-            latitude: 28.4815,
-            longitude: -16.22913
+            latitude: 40.8223,
+            longitude: -74.3
         }
     },
     {
@@ -35,8 +35,8 @@ export default [
         location : 'Bloomfield, NJ',
         rate : '$30',
         coordinate: {
-            latitude: 28.34567,
-            longitude: -16.2291
+            latitude: 40.8223,
+            longitude: -74.2
         }
     },
     {
@@ -46,8 +46,8 @@ export default [
         location : 'Montclair, NJ',
         rate : '$20',
         coordinate: {
-            latitude: 28.4210,
-            longitude: -16.3103
+            latitude: 40.8223,
+            longitude: -74.8
         }
     },
     {
@@ -57,8 +57,8 @@ export default [
         location : 'Queens, NY',
         rate : '$40',
         coordinate: {
-            latitude: 28.7890,
-            longitude: -16.21938
+            latitude: 40.8223,
+            longitude: -74.599
         }
     }
 ]
