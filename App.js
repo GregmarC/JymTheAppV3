@@ -19,6 +19,7 @@ import SearchResultsScreen from './src/screens/SearchResultsScreen';
 import WorkoutLocationSearch from './src/screens/WorkoutLocationSearch';
 import SearchParams from './src/screens/SearchParams';
 import Router from './src/navigation/Routers';
+import { withAuthenticator } from 'aws-amplify-react-native'
 
 
 const Section = ({children, title}): Node => {
@@ -64,4 +65,4 @@ const App: () => Node = () => {
   );
 };
 
-export default App;
+export default withAuthenticator(App);

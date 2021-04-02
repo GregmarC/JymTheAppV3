@@ -21,7 +21,12 @@ const HomeScreen = (props) => {
                 </TouchableOpacity>
             </View>
             <View style={styles.buttonContainer} >
-                <TouchableOpacity style={styles.button} onPress={() => console.warn('Button was pressed')}>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home', {
+                    screen: 'Appointments',
+                    params: {
+                        screen: 'Become a Jym Trainer',
+                    },
+                })}>
                     <Text style={styles.buttonText}>Become a Jym Trainer</Text>
                 </TouchableOpacity>
             </View>

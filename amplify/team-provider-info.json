@@ -10,6 +10,11 @@
       "StackName": "amplify-jymtheappv3-dev-194744",
       "StackId": "arn:aws:cloudformation:us-east-1:562831477174:stack/amplify-jymtheappv3-dev-194744/aa7ffea0-8e8d-11eb-83a9-0abf94ca9997",
       "AmplifyAppId": "d218gzqnvm26pj"
+    },
+    "categories": {
+      "auth": {
+        "jymtheappv32f9b984a": {}
+      }
     }
   }
 }
