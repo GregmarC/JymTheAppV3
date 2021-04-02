@@ -1,5 +1,5 @@
 import Amplify, { API, graphqlOperation } from 'aws-amplify';
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import Feather from 'react-native-vector-icons/Feather'
 import { TouchableOpacity } from 'react-native'
 import { Alert } from 'react-native';
@@ -15,6 +15,8 @@ const JymTrainerPost = (props) => {
     const [location, setLocation] = useState('')
     const [rate, setRate] = useState('')
     const [image, setImage] = useState('')
+
+    const firstInput = useRef()
 
     let sampleTrainer = {
         name: name,
@@ -33,6 +35,10 @@ const JymTrainerPost = (props) => {
         setImage('')
     }
 
+    const newFocus = () => {
+        firstInput.current.focus()
+    }
+
     const listJymTrainers = async () => {
         let jymTrainers = await API.graphql(graphqlOperation(listBlogs));
 
@@ -46,6 +52,7 @@ const JymTrainerPost = (props) => {
             let newJymTrainer = await API.graphql(graphqlOperation(createBlog, { input: sampleTrainer }));
             resetFields()
             Alert.alert('Thank you. You have successfully created a Jym Buddy Listing!')
+            newFocus()
 
         } catch (error) {
 
@@ -63,6 +70,7 @@ const JymTrainerPost = (props) => {
                 </View>
                 <View style={styles.jymPostForm}>
                     <TextInput
+                        ref={firstInput}
                         style={styles.input}
                         onChangeText={setName}
                         value={name}
