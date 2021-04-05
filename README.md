@@ -2,6 +2,8 @@
  
 Through the use of React Native for frontend and AWS alongside GraphQL for backend needs, I developed a mobile app that connects users to nearby fitness trainers, as well as to trainers that are open to virtual training sessions.
 
+Notable implemented features/packages include: React Native Google Places Autocomplete, React Native Google Maps, AWS Auth 
+
 Screens:
 
 <span><img src="https://user-images.githubusercontent.com/49351487/113543938-61f50980-95b5-11eb-8fb2-6cf9fc48148d.png" width="300" height="600"></span>
