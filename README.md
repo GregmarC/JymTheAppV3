@@ -1,6 +1,6 @@
 # JymTheAppV3
  
-Through the use of React Native for frontend and AWS alongside GraphQL for backend needs, I developed a mobile app that connects users to nearby fitness trainers, as well as to trainers that are open to virtual training sessions.
+Through the use of React Native for frontend and AWS alongside GraphQL for backend and database needs, I developed a full-stack mobile app that connects users to nearby fitness trainers, as well as to trainers that are open to virtual training sessions.
 
 Notable implemented features/packages include: React Native Google Places Autocomplete, React Native Google Maps, AWS Authentication 
 
